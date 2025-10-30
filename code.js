@@ -3,7 +3,7 @@ let pencil = canvas.getContext("2d");
 
 import {Star} from "./star.js";
 
-let stars = [new Star(pencil)];
+let stars = [new Star(canvas, pencil)];
 
 function gameLoop() {
     //erase canvas
