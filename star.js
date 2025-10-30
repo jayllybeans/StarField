@@ -9,7 +9,7 @@ export class Star {
 
     draw() {
         this.pencil.beginPath();
-        this.pencil.arc(this.x, this.y, 50, 0, Math.Pi * 2);
+        this.pencil.arc(this.x, this.y, 50, 0, Math.PI * 2);
         this.pencil.fillStyle = this.color;
         this.pencil.fill();
         this.pencil.closePath();
