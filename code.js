@@ -7,6 +7,7 @@ let stars = [new Star(pencil)];
 
 function gameLoop() {
     //erase canvas
+    pencil.clearRect(0, 0, canvas.width, canvas.height);
     //draw background
     pencil.fillStyle = "black";
     pencil.fillRect(0, 0, canvas.clientWidth, canvas.height);
@@ -17,6 +18,7 @@ function gameLoop() {
     //the stars go shimmy
     for(let i = 0; i < stars.length; i++){
         stars[i].move();
+        stars[i].draw();
     }
     //recycle stars
 }
