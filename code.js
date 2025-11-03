@@ -3,7 +3,12 @@ let pencil = canvas.getContext("2d");
 
 import {Star} from "./star.js";
 
-let stars = [new Star(canvas, pencil)];
+let stars = [];
+
+//fill array with stars
+for (let i = 0; i < 1000; i++){
+    stars.push(new Star(canvas, pencil));
+}
 
 function gameLoop() {
     //erase canvas
@@ -11,6 +16,7 @@ function gameLoop() {
     //draw background
     pencil.fillStyle = "black";
     pencil.fillRect(0, 0, canvas.clientWidth, canvas.height);
+
     //draw stars
     for(let i = 0; i < stars.length; i++){
         stars[i].draw();
@@ -18,9 +24,14 @@ function gameLoop() {
     //the stars go shimmy
     for(let i = 0; i < stars.length; i++){
         stars[i].move();
-        stars[i].draw();
     }
     //recycle stars
+    for(let i = 0; i < stars.length; i++){
+        if (stars[i].x < 0) {
+            stars[i].x = canvas.width;
+            stars[i].y = Math.random() * canvas.height;
+          }
+    }
 }
 
 setInterval(gameLoop, 50);
